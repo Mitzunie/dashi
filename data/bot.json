@@ -1,0 +1,9 @@
+{
+    "maintenance": false,
+    "statusNotification": true,
+    "statusNotificationText": "Change this text in the botData.json",
+    "bot_version": "0.1.0",
+    "bot_name": "On Development",
+    "bot_game": "🎈 | Portal MyHelp",
+    "bot_status": "online"
+ }

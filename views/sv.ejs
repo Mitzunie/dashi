@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://modesta.alexflipnote.dev/css/modesta.min.css" type="text/css" rel="stylesheet">
+    <title><%= pagetitle %></title>
+    <!-- Twemoji version | 195 KB -->
+    <link href="https://modesta.alexflipnote.dev/css/twemoji.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Blobcat version | 23.5 KB -->
+    <link href="https://modesta.alexflipnote.dev/css/blobcat.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Blobcat version | 23.5 KB -->
+    <link href="/public/css/main.css" type="text/css" rel="stylesheet">
+</head>
+
+<div class="flex-grid pad">
+    <div class="col-xs-12 p-3">
+        <div class="box-container emerald">
+            <h1>Hola <%=user.username%><h1>
+        </div>
+        <div class="box-container alizarin-flat message">
+            <a class="close">×</a>
+            <p>Recuerda que mi rol tiene que ser el mas alto que todos los demas para una mejor configuracion</p>
+        </div>
+    </div>
+</div>
+
+<div class="flex-grid">
+    <div class="col-xs">
+        <section class="card-container">
+            <div class="card">
+                <div class="avatar">
+                    <img src="https://cdn.discordapp.com/icons/<%=guild.id%>/<%=guild.icon%>.png">
+                </div>
+                <h1 class="title"><i class="emoji emoji-lg twa-boy"></i>Servidor</h1>
+                <p class="description"><%=guild.name%></p>
+                <div class="footer">
+                    <a class="btn hover-scale-inset COLOUR" href="/guilds">Regresar al panel de servidores</a>
+                </div>
+        </section>
+    </div>
+
+    <div class="col-xs">
+        <div class="card-container">
+            <div class="form-container">
+                <div class="card">
+                    <form action="/sv/<%=guild.id%>" method="post">
+                        <div class="one-half column">
+                            <label for="exampleSelect">Canal del mensaje</label>
+                              <select class="" id="exampleSelect" name='channel'>
+                                      <% guild.channels.filter(c => c.type === 'text').forEach(r => { %>
+                        <option value="<%= r.id %>"><%= r.name %></option>
+                        <% }) %>
+                    </select>
+                        </div>
+                        <label for="exampleMessage">Message</label>
+                        <textarea class="full-width" placeholder="Text..." name="message"></textarea>
+                        <input class="btn" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs">
+        <section class="card-container">
+            <div class="card">
+                <div class="avatar">
+                    <img src="">
+                </div>
+                <h1 class="title">Roles Del Servidor</h1>
+                <p class="description"></p>
+                <div class="footer">
+                    <select class="" id="exampleSelect">
+                        <% guild.roles.map(r => { %>
+                        <option value="<%= r.id %>"><%= r.name %></option>
+                        <% }) %>
+                    </select>
+                </div>
+            </div>
+    </div>
+      </div>
+    </body>
+
+</html>
